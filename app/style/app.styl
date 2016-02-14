@@ -1,13 +1,71 @@
 @import 'nib'
 
+//- Color Variables
+white = #fff
+primary-color = #4db6ac
+
+//- Globals
 body
-    background-color #fff
+    background-color white
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
     -webkit-transform translate3d(0,0,0)
 
-    font-family HelveticaNeue, Helvetica, Arial, sans-serif
     font-size 17px
     color #a3a3a3
     line-height 20px
 
+.container
+	width 100%
+
+//- Navigation
+nav
+	background-color primary-color
+	@media (min-width: 993px)
+		.brand-logo
+			padding-left: 20px
+			
+
+//- Home Page
+
+
+//- Profile Page
+.profile
+	background-repeat no-repeat
+	background-position center center
+	background-size cover
+	min-height 450px
+	position relative
+	display flex
+	justify-content center
+	align-items center
+	
+	.section-title
+		margin 0
+		color white
+	
+	.user-icon
+		position absolute
+		bottom -20px
+		left 50%
+		margin-left -45px
+		border: 5px solid white
+		transition bottom 0.3s
+		z-index 523
+		&:hover
+			bottom -20px
+			transition all 0.3s
+	
+	.change-header-img-icon
+		color white
+		position absolute
+		bottom 5%
+		left 2%
+		cursor pointer
+		&:hover
+			opacity 0.8
+
+			
+		
+
+		

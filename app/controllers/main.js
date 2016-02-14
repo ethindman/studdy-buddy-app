@@ -1,19 +1,20 @@
 'use strict';
 
-app.controller('MainController', ['$scope', '$location', '$cookies', '$firebaseObject', function ($scope, $location, $cookies, $firebaseObject) {
+app.controller('MainController', ['$scope', '$location', '$cookies', '$firebaseObject', '$firebaseArray', function ($scope, $location, $cookies, $firebaseObject, $firebaseArray) {
     
     // Setup Firebase base reference
-    var ref = new Firebase('https://<<yourappurl>>.firebaseio.com/');
+    var ref = new Firebase('https://sbapp1122.firebaseio.com/');
 
     // Create date string
     $scope.date = moment().format('MMMM Do, YYYY');
 
-    // $scope.getUser = function() {
-        var user = ref.child('users').child('ethindman');
+    // Login User
+    var user = ref.child('users').child('ethindman');
+    var syncUser = $firebaseObject(user);
+    syncUser.$bindTo($scope, "user");
 
-        var syncUser = $firebaseObject(user);
-
-        syncUser.$bindTo($scope, "user");
-    // }
+    var buddies = ref.child('buddies').child('ethindman');
+    var syncBuddy = $firebaseObject(buddies);
+    syncBuddy.$bindTo($scope, "buddies");
 
 }]);

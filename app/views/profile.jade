@@ -1,5 +1,19 @@
-h2 Profile Page
+section.profile(ng-style="{'background-image': 'url(' + user.cover_image + ')'}")
+	.row
+		.col.s12
+			h2.section-title {{ user.full_name }}
+			img.circle.user-icon.z-depth-1(ng-src='{{ user.gravatar }}')
+			i.material-icons.small.change-header-img-icon(ng-click='changeSomething()') perm_camera_mic
 
-p {{ date }}
+section.user-info
+	.row
+		.col.s10.offset-s1
+			.section
+				h5 Basic Info
+			.divider
+			.section
+				p Name: {{ user.full_name }}
+				p Email: {{ user.email }}
+				p Joined Date: {{ user.date_joined }}
 
-a.btn.btn-default(href='/') Back
+			a.waves-effect.waves-light.btn(href="/") Home

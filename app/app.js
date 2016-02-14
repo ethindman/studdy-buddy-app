@@ -4,10 +4,6 @@ var app = angular.module('sbApp', ['ngRoute', 'ngCookies', 'firebase']);
 
 app.config(function($locationProvider, $routeProvider) {
 
-    $locationProvider.html5Mode({
-        enabled: true
-    });
-
     // Routes
     $routeProvider
         .when('/', {
@@ -25,4 +21,7 @@ app.config(function($locationProvider, $routeProvider) {
         .otherwise({
             redirectTo: '/',
         });
+    $locationProvider
+        .html5Mode(true);
+
 });

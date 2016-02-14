@@ -1,6 +1,7 @@
 'use strict';
 
 var $          = require('gulp-load-plugins')();
+var urlHistory = require('connect-history-api-fallback');
 var gulp       = require('gulp');
 var nib        = require('nib');
 var browser    = require('browser-sync').create();
@@ -70,7 +71,9 @@ gulp.task('images', function() {
 gulp.task('server', function() {
     browser.init({
         server: 'public/', 
-        port: PORT
+        port: PORT,
+        baseDir: 'public',
+        middleware: [ urlHistory() ]
     });
 });
 
