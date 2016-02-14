@@ -1,17 +1,17 @@
-### Dependencies
+## Dependencies
 
-Gulp(http://gulpjs.com/)
-Node(https://nodejs.org/en/)
-npm(https://www.npmjs.com/)
-AngularFire(https://www.firebase.com/docs/web/libraries/angular/guide/)
+- [Gulp](http://gulpjs.com/)
+- [Node](https://nodejs.org/en/)
+- [npm](https://www.npmjs.com/)
+- [AngularFire](https://www.firebase.com/docs/web/libraries/angular/guide/)
 
-### Dependency Docs
+## Dependency Docs
 
-Stylus(http://stylus-lang.com/docs/media.html)
-Jade(http://jade-lang.com/)
-MaterializeCSS(http://materializecss.com/)
+- [Stylus](http://stylus-lang.com/docs/media.html)
+- [Jade](http://jade-lang.com/)
+- [MaterializeCSS](http://materializecss.com/)
 
-### Setup
+## Setup
 
 To set up your app and compile your files, run the following commands from the project root:
 
