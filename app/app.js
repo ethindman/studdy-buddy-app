@@ -9,11 +9,11 @@ app.config(function($locationProvider, $routeProvider) {
         .when('/', {
             templateUrl: 'html/home.html'
         })
-        .when('/about', {
-            templateUrl: 'html/about.html'
+        .when('/topic', {
+            templateUrl: 'html/topic.html'
         })
-        .when('/settings', {
-            templateUrl: 'html/settings.html'
+        .when('/post', {
+            templateUrl: 'html/post.html'
         })
         .when('/profile', {
             templateUrl: 'html/profile.html'

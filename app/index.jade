@@ -8,10 +8,10 @@ html(ng-app='sbApp')
         link(rel='stylesheet', href='/css/app.min.css')
     body
         .container(ng-controller='MainController')
+            
             include ./includes/partials/nav_bar.jade
-
-            center
-                div(ng-view)
+            
+            div(ng-view)
 
         script.
             console.log("working");

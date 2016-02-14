@@ -8,6 +8,8 @@ app.controller('MainController', ['$scope', '$location', '$cookies', '$firebaseO
     // Create date string
     $scope.date = moment().format('MMMM Do, YYYY');
 
+    $scope.tempcoverimage = "https://static.pexels.com/photos/45917/pexels-photo-45917-large.jpeg"
+
     // Login User
     var user = ref.child('users').child('ethindman');
     var syncUser = $firebaseObject(user);
@@ -17,4 +19,8 @@ app.controller('MainController', ['$scope', '$location', '$cookies', '$firebaseO
     var syncBuddy = $firebaseObject(buddies);
     syncBuddy.$bindTo($scope, "buddies");
 
+    $scope.createBuddy = function() {
+        alert("got here");
+    }
+    
 }]);

@@ -1,0 +1,6 @@
+.container
+	.row
+		.col.md-6.col.md-offset-3
+			form(ng-submit='createBuddy(buddy)')
+				input.form-control(type='text', ng-model='buddy.full_name', placeholder='Buddy Name', required)
+				input.btn.btn-warning(type='submit', value='Post')

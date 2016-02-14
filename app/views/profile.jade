@@ -1,11 +1,11 @@
-section.profile(ng-style="{'background-image': 'url(' + user.cover_image + ')'}")
+section.hero(ng-style="{'background-image': 'url(' + user.cover_image + ')'}")
 	.row
 		.col.s12
 			h2.section-title {{ user.full_name }}
-			img.circle.user-icon.z-depth-1(ng-src='{{ user.gravatar }}')
-			i.material-icons.small.change-header-img-icon(ng-click='changeSomething()') perm_camera_mic
+			img.circle.gravatar-icon.z-depth-1(ng-src='{{ user.gravatar }}')
+			i.fa.fa-camera.change-header-img-icon 
 
-section.user-info
+section.user-info.light.center
 	.row
 		.col.s10.offset-s1
 			.section

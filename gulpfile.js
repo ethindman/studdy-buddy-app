@@ -88,7 +88,7 @@ gulp.task('default', ['compile', 'server'], function() {
     gulp.watch(['app/*.js', 'app/controllers/*.js'], ['javascript']);
 
     // Watch Jade files
-    gulp.watch(['app/*.jade', 'app/views/*.jade'], ['jade']);
+    gulp.watch(['app/*.jade', 'app/views/*.jade', 'app/includes/**/*.jade'], ['jade']);
 
     // Watch Stylus files
     gulp.watch('app/style/*.styl', ['stylus']);

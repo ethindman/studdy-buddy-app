@@ -1,0 +1,15 @@
+section.hero(ng-style="{'background-image': 'url(' + tempcoverimage + ')'}")
+	.row
+		.col.s12
+			h2.section-title My Info
+			img.circle.gravatar-icon.z-depth-1(ng-src='{{ user.gravatar }}')
+			i.fa.fa-camera.change-header-img-icon
+
+section.questions.light
+	h4.center Questions
+	ul.collection
+		li.collection-item
+			span.title What is a question and this is getting longer and it's getting longer and longer?
+			//- span.subtitle This is the translation
+			a.icon-item(href="#")
+				i.fa.fa-times-circle.fa-2x

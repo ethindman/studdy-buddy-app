@@ -1,7 +1,7 @@
-h4  Who will you talk with?
-
-.row
-	.col.s12(ng-repeat='buddy in buddies')
-		a(href="buddy/{{buddy.id}}")
-			img.circle.user-icon.z-depth-1(ng-src='{{ buddy.gravatar }}')
-			p {{ buddy.full_name }}
+section.light.center
+	h5 Who will you talk with?
+	.row
+		.col.s12(ng-repeat='buddy in buddies')
+			a(href="buddy/{{buddy.id}}")
+				img.circle.user-icon.z-depth-1(ng-src='{{ buddy.gravatar }}')
+				p {{ buddy.full_name }}
