@@ -45,7 +45,7 @@ gulp.task('jade', function() {
 
 // stylus -- compile, concat & compress stylus files -> app.min.css
 gulp.task('stylus', function () {
-    gulp.src('app/style/*.styl')
+    gulp.src('app/styles/*.styl')
         .pipe($.concat('app.styl'))
         .pipe($.stylus({
             compress: true,
@@ -88,8 +88,8 @@ gulp.task('default', ['compile', 'server'], function() {
     gulp.watch(['app/*.js', 'app/controllers/*.js'], ['javascript']);
 
     // Watch Jade files
-    gulp.watch(['app/*.jade', 'app/views/*.jade', 'app/includes/**/*.jade'], ['jade']);
+    gulp.watch(['app/*.jade', 'app/views/**/*.jade', 'app/includes/**/*.jade'], ['jade']);
 
     // Watch Stylus files
-    gulp.watch('app/style/*.styl', ['stylus']);
+    gulp.watch('app/styles/*.styl', ['stylus']);
 });

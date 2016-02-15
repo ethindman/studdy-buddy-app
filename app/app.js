@@ -1,35 +1,27 @@
 'use strict';
 
 var app = angular
-    .module('sbApp', [
-        'ngRoute', 
-        'ngCookies', 
-        'firebase'
-    ])
-    .constant('FURL', 'https://sbapp1122.firebaseio.com/')  
+    .module('sbApp', ['ngRoute', 'firebase'])
+    
+    .constant('FURL', 'https://sbapp01.firebaseio.com/')
+    
     .config(function($locationProvider, $routeProvider) {
        $routeProvider
+            
             .when('/', {
                 templateUrl: 'html/home.html'
             })
-
-
-            //- Study Buddy Routes
-            .when('/topic', {
-                templateUrl: 'html/topic.html'
-            })
-            .when('/create', {
-                templateUrl: 'html/create.html'
-            })
-
-
 
             //- User Routes
             .when('/profile', {
                 templateUrl: 'html/profile.html'
             })
 
-            //- CatchAll
+            .when('/login', {
+                templateUrl: 'html/login.html',
+                controller: 'UserController'
+            })
+
             .otherwise({
                 redirectTo: '/'
             });

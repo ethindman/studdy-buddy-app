@@ -1,30 +1,49 @@
 'use strict';
 
-app.controller('MainController', ['$scope', '$location', '$firebaseObject', '$firebaseArray', function ($scope, $location, $firebaseObject, $firebaseArray) {
+app.controller('MainController', ['$scope', 'FURL', 'Auth', '$firebaseObject', 
+    function ($scope, FURL, Auth, $firebaseObject) {
     
-    // Setup Firebase base reference
-    var ref = new Firebase('https://sbapp1122.firebaseio.com/');
+        // Firebase Config
+        var ref = new Firebase(FURL);
 
-    // Create date string
-    // $scope.date = moment().format('MMMM Do, YYYY');
+        // Store Date
+        $scope.date = moment().format('MMMM Do, YYYY');
 
-    // Login User
-    var user = ref.child('users').child('ethindman');
-    var syncUser = $firebaseObject(user);
-    syncUser.$bindTo($scope, "user");
+        // Get User
+        var user = ref.child('users').child('ethindman');
+        var syncUser = $firebaseObject(user);
+        syncUser.$bindTo($scope, "user");
 
-    // var buddies = ref.child('buddies').child('ethindman');
-    // var syncBuddy = $firebaseObject(buddies);
-    // syncBuddy.$bindTo($scope, "buddies");
-
-
-    // BUDDY LOGIC
-    var buddies = ref.child('buddies').child('ethindman');
-    var data = $firebaseArray(buddies);
-
-    $scope.createBuddy = function(buddy) {
-        buddy.created_on = Firebase.ServerValue.TIMESTAMP;
-        return data.$add(buddy);
     }
-    
-}]);
+]);
+
+// Factory for generating re-useable $firebaseAuth instance
+app.factory("Auth", ["$firebaseAuth", "FURL",
+  function($firebaseAuth, FURL) {
+    var ref = new Firebase(FURL);
+    return $firebaseAuth(ref);
+  }
+]);
+
+// User Controller
+app.controller('UserController', ['$scope', 'Auth',
+    function ($scope, Auth) {
+
+        // NEW USER
+        $scope.register = function() {
+            $scope.message = null;
+            $scope.error   = null;
+
+            Auth.$createUser({
+                full_name: $scope.full_name,
+                email: $scope.email,
+                password: $scope.password
+            }).then(function(userData) {
+                $scope.message = "User created with uid: " + userData.uid;  
+            }).catch(function(error) {
+                $scope.error = error;
+            });
+        };
+
+    }
+]);

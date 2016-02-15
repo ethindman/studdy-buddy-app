@@ -7,11 +7,11 @@ html(ng-app='sbApp')
         script(type='text/javascript', src='/js/app.min.js')
         link(rel='stylesheet', href='/css/app.min.css')
     body
-        .container(ng-controller='MainController')
+        .container
             
-            include ./includes/partials/nav_bar.jade
+            include ./views/partials/nav_bar.jade
             
             div(ng-view)
-
+                
         script.
-            console.log("working");
+            console.log("Index page loaded");

@@ -1,0 +1,10 @@
+section.row.light
+	.col.s12
+		.input-field
+			input.validate(ng-model="full_name", placeholder="Full Name", id="full_name", type="text" required)
+			input.validate(ng-model="email", placeholder="Email", id="email", type="text" required)
+			input.validate(ng-model="password", placeholder="Password", id="password", type="password" required)
+			input.btn.waves-effect.waves-light(ng-click="register()", type="submit", value="Signup")
+section.light
+	p(ng-if='message') Message: {{ message }}
+	p(ng-if='error') Error: {{ error }}
