@@ -15,7 +15,8 @@ var app = angular
 
             //- User Routes
             .when('/profile', {
-                templateUrl: 'html/profile.html'
+                templateUrl: 'html/profile.html',
+                controller: 'MainController'
             })
 
             .when('/login', {
