@@ -9,16 +9,11 @@ app.controller('MainController', ['$scope', 'FURL', 'Auth', '$firebaseObject',
         // Store Date
         $scope.date = moment().format('MMMM Do, YYYY');
 
-        // Get User
-        var user = ref.child('users').child('ethindman');
-        var syncUser = $firebaseObject(user);
-        syncUser.$bindTo($scope, "user");
-
+        $scope.user = Auth.user;
     }
 ]);
 
-// Factory for generating re-useable $firebaseAuth instance
-app.factory('Auth', function($firebaseAuth, $firebaseArray, FURL) {
+app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FURL) {
     
     var ref = new Firebase(FURL);
     var authRef = $firebaseAuth(ref);
@@ -34,7 +29,9 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, FURL) {
             }).then(function() {                
                 return Auth.login(user);
             }).then(function(data) {
+                console.log(data.uid);
                 return Auth.createProfile(data.uid, user);
+
             });
         },
 
@@ -51,32 +48,67 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, FURL) {
                 email: user.email
             };
 
-            var profileRef = $firebaseArray(ref.child('profile').child(uid));
+            var profileRef = $firebaseArray(ref.child('profile'));
             
             return profileRef.$add(profile);
-        }
+        },
+
+        logout: function() {
+          authRef.$unauth();
+          console.log("logged out");
+        },
 
     };
+
+    // Auth.logout();
+
+    authRef.$onAuth(function(authData) {
+        if(authData) {      
+
+        angular.copy(authData, Auth.user);
+        Auth.user.profile = $firebaseObject(ref.child('profile').child(authData.uid));
+
+        } else {
+            if(Auth.user && Auth.user.profile) {
+                Auth.user.profile.$destroy();
+            }
+            angular.copy({}, Auth.user);
+        }
+    });
 
     return Auth;
 
 });
 
 // User Controller
-app.controller('UserController', ['$scope', 'Auth',
-    function ($scope, Auth) {
+app.controller('UserController', function($scope, $location, $firebaseObject, FURL, Auth) {
 
-        // NEW USER
-        $scope.register = function(user) {
-            $scope.message = null;
-            $scope.error   = null;
+    var ref = new Firebase(FURL);
 
-            Auth.register(user)
-                .then(function(userData) {
-                    $scope.message = "User created with uid: " + userData.uid;  
-                }).catch(function(error) {
-                    $scope.error = error;
-                });
-        };
-    }
-]);
+    // NEW USER
+    $scope.register = function(user) {
+        $scope.message = null;
+        $scope.error   = null;
+
+        Auth.register(user)
+            .then(function(userData) {
+                $scope.message = "User created with uid: " + userData.uid;  
+            }).catch(function(error) {
+                $scope.error = error;
+            });
+    };
+
+    $scope.login = function(user) {
+        Auth.login(user)
+          .then(function(authData) {
+            
+            // var user = ref.child('profile').child(authData.uid);
+            // $firebaseObject(user).$bindTo($scope, "profile");
+            $location.path('/');
+       
+          }, function(err) {        
+            console.log(err);
+        });   
+    };
+
+});

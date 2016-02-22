@@ -24,7 +24,7 @@ gulp.task('javascript', function() {
     ])
         .pipe($.concat('app.min.js'))
         .pipe($.ngAnnotate())
-        .pipe($.uglify())
+        // .pipe($.uglify())
         .pipe(gulp.dest('./public/js'))
         .on('finish', browser.reload);
 });

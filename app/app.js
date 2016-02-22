@@ -9,7 +9,8 @@ var app = angular
        $routeProvider
             
             .when('/', {
-                templateUrl: 'html/home.html'
+                templateUrl: 'html/home.html',
+                controller: 'MainController'
             })
 
             //- User Routes
@@ -19,6 +20,11 @@ var app = angular
 
             .when('/login', {
                 templateUrl: 'html/login.html',
+                controller: 'UserController'
+            })
+
+            .when('/register', {
+                templateUrl: 'html/register.html',
                 controller: 'UserController'
             })
 
