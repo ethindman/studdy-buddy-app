@@ -1,11 +1,12 @@
-nav(ng-controller="NavsController")
+nav(ng-controller="MainsController")
 	.nav-wrapper
+		a.brand-logo.center(href="/") StudyBuddy
 		ul#nav-mobile.right
-			li
-				a(href="/") Home
-			li
+			li(ng-hide="signedIn()")
 				a(href="/register") Register
-			li
+			li(ng-hide="signedIn()")
 				a(href="/login") Login
-			li
+			li(ng-show="signedIn()")
 				a(href="/profile") Profile
+			li(ng-show="signedIn()")
+				a(ng-click="logout()") Logout
