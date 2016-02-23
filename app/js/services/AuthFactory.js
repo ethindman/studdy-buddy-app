@@ -45,7 +45,6 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
 
         logout: function() {
           authRef.$unauth();
-          console.log("logged out");
         },
 
         signedIn: function() {
@@ -56,10 +55,8 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
 
     authRef.$onAuth(function(authData) {
         if(authData) {      
-
-        angular.copy(authData, Auth.user);
-        Auth.user.profile = $firebaseObject(ref.child('profile').child(authData.uid));
-
+            angular.copy(authData, Auth.user);
+            Auth.user.profile = $firebaseObject(ref.child('profile').child(authData.uid));
         } else {
             if(Auth.user && Auth.user.profile) {
                 Auth.user.profile.$destroy();
@@ -67,8 +64,6 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
             angular.copy({}, Auth.user);
         }
     });
-
-    Auth.signedIn();
 
     return Auth;
 

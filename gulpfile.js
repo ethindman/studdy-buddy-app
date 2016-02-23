@@ -85,7 +85,7 @@ gulp.task('compile', function(done) {
 // default -- run copile tasks, start server and set watch tasks
 gulp.task('default', ['compile', 'server'], function() {
     // Watch JavaScript files
-    gulp.watch(['app/*.js', 'app/controllers/*.js'], ['javascript']);
+    gulp.watch(['app/*.js', 'app/js/**/*.js'], ['javascript']);
 
     // Watch Jade files
     gulp.watch(['app/*.jade', 'app/views/**/*.jade', 'app/includes/**/*.jade'], ['jade']);
