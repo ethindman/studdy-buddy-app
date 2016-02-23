@@ -1,16 +1,5 @@
 'use strict';
 
-app.controller('MainController', ['$scope', 'FURL', 'Auth', '$firebaseObject', 
-    function ($scope, FURL, Auth, $firebaseObject) {
-    
-        var ref = new Firebase(FURL);
-
-        $scope.date = moment().format('MMMM Do, YYYY');
-        $scope.user = Auth.user;
-        
-    }
-]);
-
 app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FURL) {
     
     var ref = new Firebase(FURL);
@@ -82,31 +71,5 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
     Auth.signedIn();
 
     return Auth;
-
-});
-
-// User Controller
-app.controller('UserController', function($scope, $location, $firebaseObject, FURL, Auth) {
-
-    var ref = new Firebase(FURL);
-
-    $scope.register = function(user) {
-        Auth.register(user)
-            .then(function(userData) {
-                console.log("Successfully registered");
-                $location.path('/profile');
-            }).catch(function(error) {
-                console.log(error); 
-            });
-    };
-
-    $scope.login = function(user) {
-        Auth.login(user)
-          .then(function(authData) {
-            $location.path('/');
-          }, function(err) {        
-            console.log(err);
-        });   
-    };
 
 });

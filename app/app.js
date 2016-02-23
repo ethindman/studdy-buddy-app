@@ -10,23 +10,23 @@ var app = angular
             
             .when('/', {
                 templateUrl: 'html/home.html',
-                controller: 'MainController'
+                controller: 'MainsController'
             })
 
             //- User Routes
             .when('/profile', {
                 templateUrl: 'html/profile.html',
-                controller: 'MainController'
+                controller: 'MainsController'
             })
 
             .when('/login', {
                 templateUrl: 'html/login.html',
-                controller: 'UserController'
+                controller: 'AuthsController'
             })
 
             .when('/register', {
                 templateUrl: 'html/register.html',
-                controller: 'UserController'
+                controller: 'AuthsController'
             })
 
             .otherwise({

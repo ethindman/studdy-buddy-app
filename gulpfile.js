@@ -20,7 +20,7 @@ gulp.task('clean', function(done) {
 gulp.task('javascript', function() {
     gulp.src([
         'app/*.js',
-        'app/controllers/*.js',
+        'app/js/**/*.js',
     ])
         .pipe($.concat('app.min.js'))
         .pipe($.ngAnnotate())
