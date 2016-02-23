@@ -1,5 +1,3 @@
-'use strict';
-
 app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FURL) {
     
     var ref = new Firebase(FURL);
@@ -48,7 +46,11 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
         },
 
         signedIn: function() {
-          return !!Auth.user.provider;
+          if(Auth.user.provider) {
+            return true;
+            } else {
+                return false;
+            }
         }
 
     };

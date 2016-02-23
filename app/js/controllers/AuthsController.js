@@ -1,5 +1,3 @@
-'use strict';
-
 app.controller('AuthsController', function($scope, $location, $firebaseObject, FURL, Auth) {
 
     var ref = new Firebase(FURL);

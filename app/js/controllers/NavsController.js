@@ -1,9 +1,7 @@
-'use strict';
-
 app.controller('NavsController', function($scope, $location, Auth) {
 
 	$scope.currentUser = Auth.user;
-	$scope.signedIn = Auth.signedIn;
+	$scope.signedIn 	 = Auth.signedIn;
 
 	$scope.logout = function() {
 		Auth.logout();
