@@ -7,7 +7,7 @@ app.controller('MainController', ['$scope', 'FURL', 'Auth', '$firebaseObject',
 
         $scope.date = moment().format('MMMM Do, YYYY');
         $scope.user = Auth.user;
-
+        
     }
 ]);
 
@@ -79,6 +79,8 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
         }
     });
 
+    Auth.signedIn();
+
     return Auth;
 
 });
@@ -92,7 +94,7 @@ app.controller('UserController', function($scope, $location, $firebaseObject, FU
         Auth.register(user)
             .then(function(userData) {
                 console.log("Successfully registered");
-                $location('/profile');
+                $location.path('/profile');
             }).catch(function(error) {
                 console.log(error); 
             });
