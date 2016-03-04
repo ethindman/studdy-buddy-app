@@ -21,6 +21,7 @@ gulp.task('javascript', function() {
     gulp.src([
         'app/*.js',
         'app/js/**/*.js',
+        'bower_components/oh-snap/ohsnap.js'
     ])
         .pipe($.concat('app.min.js'))
         .pipe($.ngAnnotate())

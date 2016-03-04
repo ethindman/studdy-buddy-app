@@ -13,6 +13,12 @@ var app = angular
                 controller: 'MainsController'
             })
 
+            //- Post Routes
+            .when('/newPost', {
+                templateUrl: 'html/new-post.html',
+                controller: 'PostsController'
+            })
+
             //- User Routes
             .when('/profile', {
                 templateUrl: 'html/profile.html',
