@@ -1,7 +1,6 @@
 section.light.center
-	h5 Welcome!
-	.row
-		.col.s12(ng-repeat='buddy in buddies')
-			a(href="buddy/{{buddy.id}}")
-				img.circle.user-icon.z-depth-1(ng-src='{{ buddy.gravatar }}')
-				p {{ buddy.full_name }}
+  h5 Welcome!
+  .row
+    .col.s12
+      a.btn-large.waves-effect.waves-light(href='/newPost') Create New PhraseMem
+        i.fa.fa-pencil
