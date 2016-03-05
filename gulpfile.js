@@ -81,7 +81,7 @@ gulp.task('server', function() {
 
 // compile -- compile JS, Jade, Stylus & Images
 gulp.task('compile', function(done) {
-    sequence('clean', ['javascript', 'jade', 'stylus', 'images'], done);
+    sequence('javascript', ['jade', 'stylus', 'images'], done);
 });
 
 // default -- run copile tasks, start server and set watch tasks
