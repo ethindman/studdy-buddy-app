@@ -1,7 +1,9 @@
+section.row.light.center-align.no-margin
+  h5 Sign in
 section.row.light
-	.col.s12
-		.input-field
-			input.validate(ng-model="user.email", placeholder="Email", id="email", type="text" required)
-			input.validate(ng-model="user.password", placeholder="Password", id="password", type="password" required)
-			input.btn.waves-effect.waves-light(ng-click="login(user)", type="submit", value="Login")
+  .col.s12
+    .input-field
+      input.validate(ng-model="user.email", placeholder="Email", id="email", type="text" required)
+      input.validate(ng-model="user.password", placeholder="Password", id="password", type="password" required)
+      input.btn.waves-effect.waves-light(ng-click="login(user)", type="submit", value="Login")
 section.light

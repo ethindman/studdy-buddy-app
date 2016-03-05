@@ -1,10 +1,12 @@
+section.row.light.center-align.no-margin
+  h5 Register
 section.row.light
-	.col.s12
-		.input-field
-			input.validate(ng-model="user.full_name", placeholder="Full Name", id="full_name", type="text" required)
-			input.validate(ng-model="user.email", placeholder="Email", id="email", type="text" required)
-			input.validate(ng-model="user.password", placeholder="Password", id="password", type="password" required)
-			input.btn.waves-effect.waves-light(ng-click="register(user)", type="submit", value="Register")
+  .col.s12
+    .input-field
+      input.validate(ng-model="user.full_name", placeholder="Full Name", id="full_name", type="text" required)
+      input.validate(ng-model="user.email", placeholder="Email", id="email", type="text" required)
+      input.validate(ng-model="user.password", placeholder="Password", id="password", type="password" required)
+      input.btn.waves-effect.waves-light(ng-click="register(user)", type="submit", value="Register")
 section.light
-	p(ng-if='message') Message: {{ message }}
-	p(ng-if='error') Error: {{ error }}
+  p(ng-if='message') Message: {{ message }}
+  p(ng-if='error') Error: {{ error }}

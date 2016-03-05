@@ -6,7 +6,7 @@ app.controller('NavsController', function ($scope, $location, FURL, Auth) {
 	
 	$scope.logout = function() {
 		Auth.logout();
-		alert("Logout Successful!");
+		ohSnap('Logout Successful!', {color: 'green', icon: 'icon-alert'});
 		$location.path('/');
 	};
 

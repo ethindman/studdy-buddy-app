@@ -93,5 +93,5 @@ gulp.task('default', ['compile', 'server'], function() {
     gulp.watch(['app/*.jade', 'app/views/**/*.jade', 'app/includes/**/*.jade'], ['jade']);
 
     // Watch Stylus files
-    gulp.watch('app/styles/*.styl', ['stylus']);
+    gulp.watch(['app/styles/*.styl', 'app/styles/**/*.styl'], ['stylus']);
 });
