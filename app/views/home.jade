@@ -4,3 +4,9 @@ section.light.center
     .col.s12
       a.btn-large.waves-effect.waves-light(href='/newPost') Create New PhraseMem
         i.fa.fa-pencil
+  .row
+    .col.s12
+      ul(ng-repeat="post in posts")
+        li
+          span {{ post.text }}
+          span {{ post.translation }}

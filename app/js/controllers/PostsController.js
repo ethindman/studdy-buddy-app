@@ -1,6 +1,4 @@
-app.controller('PostsController', function ($scope, $location, Post, Auth) {
-
-	$scope.posts = Post.posts;
+app.controller('PostsController', function ($scope, $location, Auth, Post) {
 
 	$scope.createPost = function() {
 		$scope.post.gravatar = Auth.user.password.profileImageURL;

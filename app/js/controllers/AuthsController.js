@@ -1,6 +1,7 @@
 app.controller('AuthsController', function($scope, $location, $firebaseObject, FURL, Auth) {
 
     var ref = new Firebase(FURL);
+    $scope.user = Auth.user;
 
     $scope.register = function(user) {
         Auth.register(user)

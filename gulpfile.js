@@ -20,7 +20,8 @@ gulp.task('clean', function(done) {
 gulp.task('javascript', function() {
     gulp.src([
         'app/*.js',
-        'app/js/**/*.js',
+        'app/js/services/*.js',
+        'app/js/controllers/*.js',
         'bower_components/oh-snap/ohsnap.js'
     ])
         .pipe($.concat('app.min.js'))

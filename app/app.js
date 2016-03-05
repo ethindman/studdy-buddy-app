@@ -10,7 +10,7 @@ var app = angular
             
             .when('/', {
                 templateUrl: 'html/home.html',
-                controller: 'MainsController'
+                controller: 'FeedsController'
             })
 
             //- Post Routes
@@ -22,7 +22,7 @@ var app = angular
             //- User Routes
             .when('/profile', {
                 templateUrl: 'html/profile.html',
-                controller: 'MainsController'
+                controller: 'AuthsController'
             })
 
             .when('/login', {
