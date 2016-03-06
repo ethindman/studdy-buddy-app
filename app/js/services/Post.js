@@ -1,7 +1,7 @@
-app.factory('Post', function (FURL, $firebaseArray, Auth) {
+app.factory('Post', function (FURL, $firebaseArray, $firebaseObject, Auth) {
 
-	var firebaseRef = new Firebase(FURL);
-	var posts = $firebaseArray(firebaseRef.child('posts'));
+	var ref = new Firebase(FURL);
+	var posts = $firebaseArray(ref.child('posts'));
 	var user  = Auth.user;
 
 	var Post = {
@@ -11,6 +11,19 @@ app.factory('Post', function (FURL, $firebaseArray, Auth) {
 		createPost: function(post) {
 			post.datetime = Firebase.ServerValue.TIMESTAMP;
 			return posts.$add(post);
+		},
+
+		getPost: function(postId) {
+			return $firebaseObject(ref.child('posts').child(postId));
+		},
+
+		editPost: function(post) {
+			//- do something
+		},
+
+		deletePost: function(postId) {
+			var post = this.getPost(postId);		
+			return post.$remove();
 		}
 
 	};

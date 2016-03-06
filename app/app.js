@@ -8,7 +8,12 @@ var app = angular
     .config(function($locationProvider, $routeProvider) {
        $routeProvider
             
+            //- Feed Routes
             .when('/', {
+                templateUrl: 'html/home.html',
+                controller: 'FeedsController'
+            })
+            .when('/feed/:postId', {
                 templateUrl: 'html/home.html',
                 controller: 'FeedsController'
             })
@@ -24,17 +29,16 @@ var app = angular
                 templateUrl: 'html/profile.html',
                 controller: 'AuthsController'
             })
-
             .when('/login', {
                 templateUrl: 'html/login.html',
                 controller: 'AuthsController'
             })
-
             .when('/register', {
                 templateUrl: 'html/register.html',
                 controller: 'AuthsController'
             })
 
+            //- Else
             .otherwise({
                 redirectTo: '/'
             });

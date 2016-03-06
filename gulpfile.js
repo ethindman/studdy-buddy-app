@@ -21,8 +21,7 @@ gulp.task('javascript', function() {
     gulp.src([
         'app/*.js',
         'app/js/services/*.js',
-        'app/js/controllers/*.js',
-        'bower_components/oh-snap/ohsnap.js'
+        'app/js/controllers/*.js'
     ])
         .pipe($.concat('app.min.js'))
         .pipe($.ngAnnotate())
@@ -81,7 +80,7 @@ gulp.task('server', function() {
 
 // compile -- compile JS, Jade, Stylus & Images
 gulp.task('compile', function(done) {
-    sequence('javascript', ['jade', 'stylus', 'images'], done);
+    sequence('clean', ['javascript', 'jade', 'stylus', 'images'], done);
 });
 
 // default -- run copile tasks, start server and set watch tasks

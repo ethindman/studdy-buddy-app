@@ -6,19 +6,21 @@ app.controller('AuthsController', function($scope, $location, $firebaseObject, F
     $scope.register = function(user) {
         Auth.register(user)
         .then(function(authData) {
-            ohSnap('Succesfully registered!', {color: 'green', icon: 'icon-alert'});
+            toastr.success('Registration successful!');
             $location.path('/profile');
         }).catch(function(error) {
-            console.log(error); 
+            toastr.error('Oops! Something when wrong...');
+            console.log(error);
         });
     };
 
     $scope.login = function(user) {
         Auth.login(user)
         .then(function(authData) {
-            ohSnap('Signed in!', {color: 'green', icon: 'icon-alert'});
+            toastr.success('Login successful!');
             $location.path('/profile');
         }).catch(function(error) {        
+            toastr.error('Oops! Something when wrong...');
             console.log(error);
         });   
     };

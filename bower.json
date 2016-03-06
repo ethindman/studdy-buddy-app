@@ -20,7 +20,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "oh-snap": "*"
-  }
+  "dependencies": {}
 }

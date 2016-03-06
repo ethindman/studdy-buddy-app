@@ -6,4 +6,5 @@ section.light.center
           span.card-title {{ post.text }}
           p {{ post.translation }}
         .card-action.left-align
-          a(href="#") Link 
+          a.btn(ng-href="#/feed/{{ post.$id }}") View
+          button.btn.float-right(ng-click="deletePost(post.$id)") Delete

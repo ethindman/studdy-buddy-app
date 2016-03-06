@@ -4,4 +4,13 @@ app.controller('FeedsController', function($scope, Post, Auth) {
   $scope.user = Auth.user;
   $scope.signedIn = Auth.signedIn;
 
+  // POST FUNCTIONS
+  // ==============
+  
+  $scope.deletePost = function(postId) {
+    Post.deletePost(postId).then(function(){
+      toastr.success('Post successfully deleted!');
+    });
+  }
+
 });
