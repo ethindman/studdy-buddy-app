@@ -1,12 +1,13 @@
 app.factory('Post', function (FURL, $firebaseArray, Auth) {
 
+	var firebaseRef = new Firebase(FURL);
+	var posts = $firebaseArray(firebaseRef.child('posts'));
 	var user  = Auth.user;
-	var ref = new Firebase(FURL);
-	var posts = $firebaseArray(ref.child('posts').child(user.uid));
 
 	var Post = {
-		all: posts,
 		
+		all: posts,
+
 		createPost: function(post) {
 			post.datetime = Firebase.ServerValue.TIMESTAMP;
 			return posts.$add(post);
