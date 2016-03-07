@@ -1,10 +1,10 @@
 section.light.center
   .row
-    .col.s12.m6.l3(ng-repeat="post in posts")
+    .col.s12.m6.l3(ng-repeat="post in posts", ng-show="post.poster === user.uid")
       .card.darken-1
         .card-content.white-text.teal.lighten-3.left-align
           span.card-title {{ post.text }}
           p {{ post.translation }}
         .card-action.left-align
-          a.btn(ng-href="#/feed/{{ post.$id }}") View
+          a.btn(ng-href="/feed/{{ post.$id }}") View
           button.btn.float-right(ng-click="deletePost(post.$id)") Delete

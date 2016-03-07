@@ -1,0 +1,9 @@
+section.light.centered
+  .row
+    .col.s12.card.z-depth-1
+      h3 Phrase: {{ post.text }}
+      p Translation: {{ post.translation }}
+      .categories
+        .chip.light-green.lighten-2.white-text {{ post.category }}
+section.light.center-align.no-padding
+  a.waves-effect.waves-light.btn(href="/") Home

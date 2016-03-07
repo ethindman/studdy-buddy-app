@@ -14,7 +14,7 @@ var app = angular
                 controller: 'FeedsController'
             })
             .when('/feed/:postId', {
-                templateUrl: 'html/home.html',
+                templateUrl: 'html/post.html',
                 controller: 'FeedsController'
             })
 
