@@ -7,13 +7,11 @@ html(ng-app='sbApp')
         script(type='text/javascript', src='/js/app.min.js')
         link(rel='stylesheet', href='/css/app.min.css')
     body
-        toaster-container(toaster-options="{'time-out': 3000, 'close-button': true}")
-
         .container
             
             include ./views/partials/nav_bar.jade
             
             div(ng-view)
                 
-        script.
-            console.log("Index page loaded");
+    script.
+        console.log("Index page loaded");
