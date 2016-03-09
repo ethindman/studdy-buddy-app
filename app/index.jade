@@ -8,10 +8,10 @@ html(ng-app='sbApp')
     link(rel='stylesheet', href='/css/app.min.css')
   body
     .container
+    
+      include ./views/partials/nav_bar.jade
 
-    include ./views/partials/nav_bar.jade
-
-    div(ng-view)
+      div(ng-view)
 
     script.
       console.log("Index page loaded");
