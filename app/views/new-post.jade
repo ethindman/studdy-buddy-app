@@ -1,10 +1,7 @@
 section.row.light
   .col.s12
     .input-field
-      input.validate(ng-model="post.text", placeholder="New Phrase", id="text", type="text" required)
+      input.validate(ng-model="post.text", placeholder="Phrase", id="text", type="text" required)
       input.validate(ng-model="post.translation", placeholder="Translation", id="translation", type="text" required)
-      input.validate(ng-model="post.category", placeholder="Category", id="category", type="text" required)
-      input.btn.waves-effect.waves-light(ng-click="createPost()", type="submit", value="Create Post")
-section.light
-  p(ng-if='message') Message: {{ message }}
-  p(ng-if='error') Error: {{ error }}
+      input.validate(ng-model="post.tag", placeholder="Category", id="tag", type="text" required)
+      input.btn.waves-effect.waves-light.full-width(ng-click="createPost()", type="submit", value="Post")

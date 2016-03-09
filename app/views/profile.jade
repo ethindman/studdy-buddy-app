@@ -1,20 +1,17 @@
 //- section.hero(ng-style="{'background-image': 'url(' + user.cover_image + ')'}")
-section.hero.profile
-	.row
-		.col.s12
-			h2.section-title {{ user.profile.full_name }}
-			img.circle.gravatar-icon.z-depth-1(ng-src='{{ user.password.profileImageURL }}')
-			i.fa.fa-camera.change-header-img-icon 
-
-section.user-info.light.center
-	.row
-		.col.s10.offset-s1
-			.section
-				h5 Basic Info
-			.divider
-			.section.left-align
-				p Name: {{ user.profile.full_name }}
-				p Email: {{ user.profile.email }}
-				p Member Since: {{ user.profile.joined_date }}
-
-			a.waves-effect.waves-light.btn(href="/") Home
+section.row.hero.profile
+	.col.s12
+		img.circle.gravatar-icon.z-depth-1(ng-src='{{ user.password.profileImageURL }}')
+		i.fa.fa-camera.change-header-img-icon 
+section.row.user-info.light.center.no-margin
+	.col.s12
+		.divider
+		h4 {{ user.profile.full_name }}
+		p {{ user.profile.email }}
+		.divider
+		div.bio.left-align
+		p I'm fluent in every language. I tackle the impossible and sigh. I am just an example. I do not exist.
+		.divider
+		p Languages
+		.chip.light-green.lighten-2 Japanese
+		.chip.light-green.lighten-2.left-margin English

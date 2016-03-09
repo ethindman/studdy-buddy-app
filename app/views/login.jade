@@ -1,9 +1,11 @@
-section.row.light.center-align.no-margin
-  h5 Sign in
-section.row.light
+section.row.light.no-margin
   .col.s12
+    .title-wrapper.center-align
+      h4.align-center StudyBuddy
+      p Keep the phrases you learn <br> organized in one place
     .input-field
       input.validate(ng-model="user.email", placeholder="Email", id="email", type="text" required)
       input.validate(ng-model="user.password", placeholder="Password", id="password", type="password" required)
-      input.btn.waves-effect.waves-light(ng-click="login(user)", type="submit", value="Login")
-section.light
+      input.btn.waves-effect.waves-light.full-width(ng-click="login(user)", type="submit", value="Sign in")
+div.row.more-actions.center-align
+  a(href="/register") Sign up?
