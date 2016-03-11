@@ -7,4 +7,4 @@ section.light.center
           p {{ post.translation }}
         .card-action.left-align
           a.btn(ng-href="/feed/{{ post.$id }}") View
-          button.btn.waves-effect.waves-light.float-right.modal-trigger(href="#confirmModal", data-toggle="modal", data-src="{{post.$id}}") Delete
+          button.btn.waves-effect.waves-light.float-right.modal-trigger(ng-click="deletePost(post.$id)") Delete

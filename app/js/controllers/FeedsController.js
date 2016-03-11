@@ -4,9 +4,9 @@ app.controller('FeedsController', function($scope, $location, $routeParams, Post
   $scope.user = Auth.user;
   $scope.signedIn = Auth.signedIn;
 
-  if(!Auth.signedIn()) {
-    $location.path('/login');
-  }
+  // if(!Auth.signedIn()) {
+  //   $location.path('/login');
+  // }
 
   if($routeParams.postId) {
     $scope.post = Post.getPost($routeParams.postId);
