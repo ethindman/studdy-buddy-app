@@ -19,9 +19,9 @@ gulp.task('clean', function(done) {
 // javascript -- concat and uglify JS -> app.min.js
 gulp.task('javascript', function() {
     gulp.src([
-        'app/*.js',
-        'app/js/services/*.js',
-        'app/js/controllers/*.js'
+        'src/*.js',
+        'src/js/services/*.js',
+        'src/js/controllers/*.js'
     ])
         .pipe($.concat('app.min.js'))
         .pipe($.ngAnnotate())
@@ -33,12 +33,12 @@ gulp.task('javascript', function() {
 // jade -- compiles Jade to HTML
 gulp.task('jade', function() {
     // Compile views
-    gulp.src('app/index.jade')
+    gulp.src('src/index.jade')
         .pipe($.jade())
         .pipe($.rename('index.html'))
         .pipe(gulp.dest('./public'));
 
-    gulp.src('app/views/**/*.jade')
+    gulp.src('src/views/**/*.jade')
         .pipe($.jade())
         .pipe(gulp.dest('./public/html'))
         .on('finish', browser.reload);
@@ -46,7 +46,7 @@ gulp.task('jade', function() {
 
 // stylus -- compile, concat & compress stylus files -> app.min.css
 gulp.task('stylus', function () {
-    gulp.src('app/styles/*.styl')
+    gulp.src('src/styles/*.styl')
         .pipe($.concat('app.styl'))
         .pipe($.stylus({
             compress: true,
@@ -60,7 +60,7 @@ gulp.task('stylus', function () {
 
 // images - compress images
 gulp.task('images', function() {
-  gulp.src('app/img/**/*')
+  gulp.src('src/img/**/*')
     .pipe($.imagemin({
         progressive: true
         }))
@@ -86,11 +86,11 @@ gulp.task('compile', function(done) {
 // default -- run copile tasks, start server and set watch tasks
 gulp.task('default', ['compile', 'server'], function() {
     // Watch JavaScript files
-    gulp.watch(['app/*.js', 'app/js/**/*.js'], ['javascript']);
+    gulp.watch(['src/*.js', 'src/js/**/*.js'], ['javascript']);
 
     // Watch Jade files
-    gulp.watch(['app/*.jade', 'app/views/**/*.jade', 'app/includes/**/*.jade'], ['jade']);
+    gulp.watch(['src/*.jade', 'src/views/**/*.jade', 'src/includes/**/*.jade'], ['jade']);
 
     // Watch Stylus files
-    gulp.watch(['app/styles/*.styl', 'app/styles/**/*.styl'], ['stylus']);
+    gulp.watch(['src/styles/*.styl', 'src/styles/**/*.styl'], ['stylus']);
 });
