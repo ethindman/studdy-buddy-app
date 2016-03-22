@@ -1,10 +1,12 @@
 section.light.center
+  .row(ng-show="signedIn()")
+    .col.s12
+      a.btn.btn-large.waves-effect.waves-light.blue.lighten-1.no-margin.full-width(href="/newPost") New Post
   .row
     .col.s12.m6.l4(ng-repeat="post in posts", ng-show="post.poster === user.uid")
-      .card.darken-1
-        .card-content.white-text.teal.lighten-3.left-align
-          span.card-title {{ post.text }}
-          p {{ post.translation }}
-        .card-action.left-align
-          a.btn(ng-href="/feed/{{ post.$id }}") View
-          button.btn.waves-effect.waves-light.float-right.modal-trigger(ng-click="deletePost(post.$id)") Delete
+      .card.darken-1.hoverable
+        a(ng-href="/feed/{{ post.$id }}")
+          .card-content.white-text.teal.lighten-3.left-align
+            span.card-title {{ post.text }}
+          .card-action.left-align
+            p.grey-text {{ post.translation }}

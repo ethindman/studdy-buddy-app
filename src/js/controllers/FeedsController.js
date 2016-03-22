@@ -18,6 +18,7 @@ app.controller('FeedsController', function($scope, $location, $routeParams, Post
   $scope.deletePost = function(postId) {
     Post.deletePost(postId).then(function(){
       toastr.success('Post successfully deleted!');
+      $location.path('/home');
     });
   }
 

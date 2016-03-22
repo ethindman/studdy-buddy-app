@@ -3,8 +3,6 @@ nav(ng-controller="NavsController")
 		a.brand-logo(href="/") StudyBuddy
 		ul#nav-mobile.right
 			li(ng-show="signedIn()")
-				a(href="/newPost") New
-			li(ng-show="signedIn()")
 				a(href="/profile") Profile
 			li(ng-show="signedIn()")
 				a(ng-click="logout()") Logout
