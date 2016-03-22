@@ -1,7 +1,7 @@
 //- section.hero(ng-style="{'background-image': 'url(' + user.cover_image + ')'}")
 section.row.hero.profile
 	.col.s12
-		img.circle.gravatar-icon.z-depth-1(ng-src='{{ user.password.profileImageURL }}')
+		img.circle.gravatar-icon.z-depth-1(ng-src='{{ user.password.profileImageURL }}', height="90px", width="90px" )
 		i.fa.fa-camera.change-header-img-icon 
 section.row.user-info.light.center.no-margin
 	.col.s12
