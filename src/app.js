@@ -8,33 +8,31 @@ var app = angular
     .config(function($locationProvider, $routeProvider) {
        $routeProvider
             
-            //- Feed Routes
+            //- Posts Routes
             .when('/', {
-                templateUrl: 'html/home.html',
+                templateUrl: 'views/posts/index.html',
                 controller: 'FeedsController'
             })
             .when('/feed/:postId', {
-                templateUrl: 'html/post.html',
+                templateUrl: 'views/posts/show.html',
                 controller: 'FeedsController'
             })
-
-            //- Post Routes
             .when('/newPost', {
-                templateUrl: 'html/new-post.html',
+                templateUrl: 'views/posts/new.html',
                 controller: 'PostsController'
             })
 
             //- User Routes
             .when('/profile', {
-                templateUrl: 'html/profile.html',
+                templateUrl: 'views/profile.html',
                 controller: 'AuthsController'
             })
             .when('/login', {
-                templateUrl: 'html/login.html',
+                templateUrl: 'views/login.html',
                 controller: 'AuthsController'
             })
             .when('/register', {
-                templateUrl: 'html/register.html',
+                templateUrl: 'views/register.html',
                 controller: 'AuthsController'
             })
 

@@ -40,7 +40,7 @@ gulp.task('jade', function() {
 
     gulp.src('src/views/**/*.jade')
         .pipe($.jade())
-        .pipe(gulp.dest('./public/html'))
+        .pipe(gulp.dest('./public/views'))
         .on('finish', browser.reload);
 });
 
