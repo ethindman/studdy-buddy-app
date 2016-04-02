@@ -6,10 +6,10 @@ app.controller('AuthsController', function($scope, $location, $firebaseObject, F
   $scope.register = function(user) {
     Auth.register(user)
     .then(function(authData) {
-      toastr.success('Registration successful!');
+      console.log('Registration successful!');
       $location.path('/profile');
     }).catch(function(error) {
-      toastr.error('Oops! Something when wrong...');
+      console.log('Oops! Something when wrong...');
       console.log(error);
     });
   };
@@ -17,10 +17,10 @@ app.controller('AuthsController', function($scope, $location, $firebaseObject, F
   $scope.login = function(user) {
     Auth.login(user)
       .then(function(authData) {
-        toastr.success('Login successful!');
+        console.log('Login successful!');
         $location.path('/feed');
       }).catch(function(error) {        
-        toastr.error('Oops! Please check your email or password and try again...');
+        console.log('Oops! Please check your email or password and try again...');
         console.log(error);
     });   
   };

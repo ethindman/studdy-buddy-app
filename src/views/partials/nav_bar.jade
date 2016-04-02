@@ -1,8 +1,12 @@
 nav(ng-controller="NavsController")
-	.nav-wrapper
-		a.brand-logo(href="/") StudyBuddy
-		ul#nav-mobile.right
-			li(ng-show="signedIn()")
-				a(href="/profile") Profile
-			li(ng-show="signedIn()")
-				a(ng-click="logout()") Logout
+  .nav-wrapper
+    a.brand-logo(href='/') StudyBuddy
+    ul.right.hide-on-med-and-down
+      li(ng-show="signedIn()")
+        a(href='/')
+          i.material-icons dashboard
+      li(ng-show="signedIn()")
+        a(href='/profile')
+          i.material-icons perm_identity
+      li(ng-show="signedIn()")
+        a(ng-click="logout()") Logout
