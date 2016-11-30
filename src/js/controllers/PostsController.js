@@ -9,7 +9,12 @@ app.controller('PostsController', function ($scope, $location, Auth, Post) {
 			console.log('Post successfully created!');
 			$location.path('/');
 		});
-
 	};
+
+  $scope.editPost = function(post) {
+    Post.editPost(post).then(function(ref) {
+      $location.path('/');
+    });
+  };
 
 });

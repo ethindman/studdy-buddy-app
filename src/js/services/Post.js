@@ -5,7 +5,7 @@ app.factory('Post', function (FURL, $firebaseArray, $firebaseObject, Auth) {
 	var user  = Auth.user;
 
 	var Post = {
-		
+
 		all: posts,
 
 		createPost: function(post) {
@@ -18,11 +18,12 @@ app.factory('Post', function (FURL, $firebaseArray, $firebaseObject, Auth) {
 		},
 
 		editPost: function(post) {
-			//- do something
+			var p = this.getPost(post.$id);
+			return p.$update(post);
 		},
 
 		deletePost: function(postId) {
-			var post = this.getPost(postId);		
+			var post = this.getPost(postId);
 			return post.$remove();
 		}
 
