@@ -1,17 +1,17 @@
 doctype html
 html(ng-app='sbApp')
   head
-    include ./views/partials/meta.jade      
+    include ./views/partials/meta.jade
     include ./views/partials/externals.jade
 
     script(type='text/javascript', src='/js/app.min.js')
     link(rel='stylesheet', href='/css/app.min.css')
   body
     .container
-    
+
       include ./views/partials/nav_bar.jade
 
       div(ng-view)
 
     script.
-      console.log("Index page loaded");
+      console.log('got herer');

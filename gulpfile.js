@@ -71,7 +71,7 @@ gulp.task('images', function() {
 // server -- start the server
 gulp.task('server', function() {
     browser.init({
-        server: 'public/', 
+        server: 'public/',
         port: PORT,
         baseDir: 'public',
         middleware: [ urlHistory() ]
@@ -89,8 +89,8 @@ gulp.task('default', ['compile', 'server'], function() {
     gulp.watch(['src/*.js', 'src/js/**/*.js'], ['javascript']);
 
     // Watch Jade files
-    gulp.watch(['src/*.jade', 'src/views/**/*.jade', 'src/includes/**/*.jade'], ['jade']);
+    gulp.watch(['src/*.jade', 'src/views/**/*.jade'], ['jade']);
 
     // Watch Stylus files
-    gulp.watch(['src/styles/*.styl', 'src/styles/**/*.styl'], ['stylus']);
+    gulp.watch(['src/styles/**/*.styl'], ['stylus']);
 });
