@@ -5,6 +5,9 @@ section.light
       p Translation: {{ post.translation }}
       .categories
         .chip.light-green.lighten-2.white-text {{ post.tag }}
-        button.btn.waves-effect.waves-light.float-right.modal-trigger(ng-click="deletePost(post.$id)") Delete
+        a.waves-effect.waves-light.btn.red.float-right(ng-click="deletePost(post.$id)")
+          i.material-icons.left delete
+          | Delete
+
 section.light.center-align
   a.waves-effect.waves-light.btn(href="/") Home

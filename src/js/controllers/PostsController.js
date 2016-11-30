@@ -6,7 +6,7 @@ app.controller('PostsController', function ($scope, $location, Auth, Post) {
 		$scope.post.poster = Auth.user.uid;
 
 		Post.createPost($scope.post).then(function(ref) {
-			toastr.success('Post successfully created!');
+			console.log('Post successfully created!');
 			$location.path('/');
 		});
 

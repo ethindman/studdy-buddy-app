@@ -4,8 +4,8 @@ app.controller('NavsController', function ($scope, $location, FURL, Auth) {
 	
 	$scope.logout = function() {
 		Auth.logout();
-		toastr.success('Logout successful!');
-		$location.path('/');
+		console.log('Logout successful!');
+		$location.path('/login');
 	};
 
 });
