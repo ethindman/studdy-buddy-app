@@ -1,4 +1,6 @@
-app.controller('PostsController', function ($scope, $location, Auth, Post) {
+app.controller('PostsController', function ($scope, $location, $routeParams, Auth, Post) {
+
+  $scope.current_post = Post.getPost($routeParams.postID);
 
 	$scope.createPost = function() {
     $scope.post.gravatar = Auth.user.password.profileImageURL;
@@ -11,11 +13,15 @@ app.controller('PostsController', function ($scope, $location, Auth, Post) {
 		});
 	};
 
-  $scope.editPost = function(post) {
-    console.log('got here post controller');
+  $scope.updatePost = function(post) {
+    post.id = $routeParams.postID;
 
-    Post.editPost(post).then(function(ref) {
-      $location.path('/');
+    Post.updatePost(post).then(function(ref) {
+
+      console.log(ref);
+      console.log('updated successfully');
+
+      // $location.path('/');
     });
   };
 

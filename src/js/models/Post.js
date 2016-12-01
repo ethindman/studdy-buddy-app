@@ -17,10 +17,12 @@ app.factory('Post', function (FURL, $firebaseArray, $firebaseObject, Auth) {
 			return $firebaseObject(ref.child('posts').child(postId));
 		},
 
-		editPost: function(post) {
-			console.log('got herer post model');
-			var p = this.getPost(post.$id);
-			return p.$update(post);
+		updatePost: function(post) {
+			var p = this.getPost(post.id);
+
+			console.log(p);
+
+			return p.$save(post);
 		},
 
 		deletePost: function(postId) {

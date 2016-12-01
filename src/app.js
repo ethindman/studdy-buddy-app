@@ -3,7 +3,7 @@
 var app = angular
     .module('sbApp', ['ngRoute', 'firebase'])
 
-    .constant('FURL', 'https://sbapp01.firebaseio.com/')
+    .constant('FURL', 'https://todo1173.firebaseio.com/')
 
     .config(function($locationProvider, $routeProvider) {
        $routeProvider

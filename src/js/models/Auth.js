@@ -1,5 +1,5 @@
 app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FURL) {
-    
+
     var ref = new Firebase(FURL);
     var authRef = $firebaseAuth(ref);
 
@@ -11,12 +11,11 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
             return authRef.$createUser({
                 email: user.email,
                 password: user.password
-            }).then(function() {                
+            }).then(function() {
                 return Auth.login(user);
             }).then(function(data) {
                 console.log(data.uid);
                 return Auth.createProfile(data.uid, user);
-
             });
         },
 
@@ -28,16 +27,13 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
         },
 
         createProfile: function(uid, user) {
-            var date = moment().format('MMMM Do, YYYY');
-            
             var profile = {
                 full_name: user.full_name,
-                email: user.email,
-                joined_date: date
+                email: user.email
             };
 
             var profileRef = ref.child('profile').child(uid);
-            
+
             return profileRef.set(profile);
         },
 
@@ -56,7 +52,7 @@ app.factory('Auth', function($firebaseAuth, $firebaseArray, $firebaseObject, FUR
     };
 
     authRef.$onAuth(function(authData) {
-        if(authData) {      
+        if(authData) {
             angular.copy(authData, Auth.user);
             Auth.user.profile = $firebaseObject(ref.child('profile').child(authData.uid));
         } else {
