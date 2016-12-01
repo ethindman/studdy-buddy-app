@@ -20,7 +20,7 @@ gulp.task('clean', function(done) {
 gulp.task('javascript', function() {
     gulp.src([
         'src/*.js',
-        'src/js/services/*.js',
+        'src/js/models/*.js',
         'src/js/controllers/*.js'
     ])
         .pipe($.concat('app.min.js'))

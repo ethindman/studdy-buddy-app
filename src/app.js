@@ -2,12 +2,12 @@
 
 var app = angular
     .module('sbApp', ['ngRoute', 'firebase'])
-    
+
     .constant('FURL', 'https://sbapp01.firebaseio.com/')
-    
+
     .config(function($locationProvider, $routeProvider) {
        $routeProvider
-            
+
             //- Posts Routes
             .when('/', {
                 templateUrl: 'views/posts/index.html',
@@ -19,6 +19,10 @@ var app = angular
             })
             .when('/newPost', {
                 templateUrl: 'views/posts/new.html',
+                controller: 'PostsController'
+            })
+            .when('/post/edit/:postID', {
+                templateUrl: 'views/posts/edit.html',
                 controller: 'PostsController'
             })
 

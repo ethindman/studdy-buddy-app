@@ -18,6 +18,7 @@ app.factory('Post', function (FURL, $firebaseArray, $firebaseObject, Auth) {
 		},
 
 		editPost: function(post) {
+			console.log('got herer post model');
 			var p = this.getPost(post.$id);
 			return p.$update(post);
 		},

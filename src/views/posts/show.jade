@@ -8,7 +8,7 @@ section.light
         a.waves-effect.waves-light.btn.red.float-right(ng-click="deletePost(post.$id)")
           i.material-icons.left delete
           | Delete
-        a.waves-effect.waves-light.btn.orange.float-right(href='#modal1')
+        a.waves-effect.waves-light.btn.orange.float-right(ng-href="/post/edit/{{ post.$id }}")
           i.material-icons.left edit
           | Edit
 

@@ -12,6 +12,8 @@ app.controller('PostsController', function ($scope, $location, Auth, Post) {
 	};
 
   $scope.editPost = function(post) {
+    console.log('got here post controller');
+
     Post.editPost(post).then(function(ref) {
       $location.path('/');
     });

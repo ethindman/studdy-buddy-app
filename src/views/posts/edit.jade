@@ -1,0 +1,9 @@
+section.row.light.no-margin
+  .col.s12
+    .input-field
+      input.validate(ng-model="post.text", placeholder="{{ post.text }}", id="text", type="text" required)
+      input.validate(ng-model="post.translation", placeholder="Translation", id="translation", type="text" required)
+      input.validate(ng-model="post.tag", placeholder="Category", id="tag", type="text" required)
+      input.btn.waves-effect.waves-light.full-width(ng-click="editPost(post)", type="submit", value="Post")
+div.row.more-actions.center-align
+  a(href="/") Cancel?
